@@ -1,29 +1,29 @@
 body {
   margin: 0;
-  font-family: 'Arial';
+  font-family: 'times';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: Arial;
+  font-family: 'Times New Roman', Times, serif;
 }
 
 .app {
-  background: #209cee;
+  background: #ee2068;
   padding: 30px;
   height: 100vh;
 }
 
 .todo-list{
-  background: #e8e8e8;
+  background: #052d72;
   border-radius: 4px;
   padding: 5px;
   max-width: 400px;
 }
 
 .todo{
-  background: #fff;
+  background: rgb(221, 219, 207);
   box-shadow: 1px 1px 1px rgba(0,0,0, 0.15);
   padding: 3px 10px;
   font-size: 24px;

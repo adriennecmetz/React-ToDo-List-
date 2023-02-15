@@ -1,62 +1,75 @@
 function App(){
   const [todos, setTodos] = React.useState([
     {
-      text: 'learn react',
+      text: 'Make School Lunches',
       isCompleted: false,
     },
     {
-      text: 'meet friend for lunch',
+      text: 'Meet Contractor at 10 am Thursday ',
       isCompleted: false,
     },
     {
-      text: 'build todo app',
+      text: 'Sign Up for Swim Lessons and Jr. Guard test -Vivian',
+      isCompleted: false,
+    },        
+    {
+      text: 'Work On Module 13',
+      isCompleted: false,
+    },   
+    {
+      text: 'Volunteer in Class-Vivian',
+      isCompleted: false,
+    }, 
+    {
+      text: 'Basketball Game- Isaac',
+      isCompleted: false,
+    }, 
+    {
+      text: 'Dinner with Longs',
+      isCompleted: false,
+    }, 
+    {
+      text: 'Mammogram',
+      isCompleted: false,
+    },  
+        {
+      text: 'Snowboard Gear for Isaac',
       isCompleted: false,
     },
-    
-    {
-      text: 'watch youtube video',
+        {
+      text: 'Donuts for Basketball Game',
       isCompleted: false,
-    }
-    
-
+    },
+        {
+      text: 'Piano Lessons M & T',
+      isCompleted: false,
+    },
+        {
+      text: 'Play Practice M & W',
+      isCompleted: false,
+    },
   ]);
-  const [value, setValue] = React.useState('');
-  const handleSubmit = e => {
-    e.preventDefault();
-    if (!value) return;
-    const newTodos = [...todos, { text:value, isCompleted: false }];
+
+  const addTodo = text => {
+    const newTodos = [...todos, {text, isCompleted:false}];
     setTodos(newTodos);
-    setValue('');
   }
-  const removeTodo = e => {
-    const index = Number(e.target.id);
-    let temp = [...todos];
+  const removeTodo = index => {
+    let temp = [...todos];    
     temp.splice(index, 1);
     setTodos(temp);
   }
 
-
-
-
-
   return(
-    <>
-      {todos.map((todo, i) =>
-        <div className="todo" key={i} id={i} onClick ={removeTodo} >{todo.text}</div>)}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          className="input"
-          value={value}
-          placeholder="Add Todo..."
-          onChange ={e => setValue(e.target.value)}
-          />
-        
-       
-
-      </form>
-      
-    </> );
+    <div className="app">
+      <div className="todo-list" >
+        {todos.map((todo, i) => (
+          <Todo key={i} index={i} todo={todo} remove={removeTodo}/>
+        ))}
+        <TodoForm addTodo={addTodo} />
+      </div>
+    </div>
+  );
 }
 
 ReactDOM.render(
